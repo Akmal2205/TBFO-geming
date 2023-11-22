@@ -19,5 +19,3 @@ with open('c:\\Users\\ASUS\\Documents\\TBFO\\TBFO-geming\\test_files\\index.html
         all_nonspace+=re.split(r'[<,>]',line.strip())
 
 print(all_nonspace)
-
-
