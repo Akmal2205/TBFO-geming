@@ -9,6 +9,8 @@ def attribute_generalizer(string):
     pattern_class = re.compile(r'class\s*=\s*"[^"]+"')
     pattern_style = re.compile(r'style\s*=\s*"[^"]+"')
     pattern_action = re.compile(r'action\s*=\s*"[^"]+"')
+    pattern_type = re.compile(r'type\s*=\s*("[^"]*")')
+    pattern_method = re.compile(r'method\s*=\s*("[^"]*")')
     result_string = pattern_src.sub('src="*"', string)
     result_string = pattern_alt.sub('alt="*"', result_string)
     result_string = pattern_href.sub('href="*"', result_string)
@@ -16,6 +18,8 @@ def attribute_generalizer(string):
     result_string = pattern_class.sub('class="*"', result_string)
     result_string = pattern_style.sub('style="*"', result_string)
     result_string = pattern_action.sub('action="*"', result_string)
+    result_string = pattern_method.sub(r'method=\1', result_string)
+    result_string = pattern_type.sub(r'type=\1', result_string)
     return result_string
     
 
@@ -41,7 +45,7 @@ def HtmlParser(filename):
     global allnonwhitespace
     lines=[]
     allnonwhitespace=[]
-    with open(os.path.abspath("../test_files/accepted_inputs/" + filename), 'r', encoding='utf-8') as file:
+    with open(os.path.abspath("../test_files/" + filename), 'r', encoding='utf-8') as file:
         # Read the entire content of the file into a variable
         for line in file:
             # all_nonspace+=re.split(r'[<,>]',line.strip())
