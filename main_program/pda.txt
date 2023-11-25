@@ -1,14 +1,101 @@
 Q P F
 a
 Z Y
-Q
+q0
 Z
 F
 F
-Q a Z Q YZ
-Q a Y Q YY
-Q e Z P Z
-Q e Y P Y 
-P a Z P e 
-P a Y P e
-P e Z F e
+#q0 html awal
+q0 < Z q0 k0
+q0 html k0 q0 u1
+q0 > u1 q0 h0
+q0 !-- k0 q6 Z
+q0 < h0 q1 h1
+
+#q1, head
+q1 head h1 q1 Z
+q1 > Z q1 h2
+q1 < h2 q1 k1
+q1 / k1 q1 x1
+q1 head x1 q1 h3
+q1 > h3 q1 b0
+q1 < b0 q5 b1
+q1 title k1 q2 Z
+q1 !-- k1 q6 Z
+q1 !-- h1 q6 sp
+q1 script k1 q3 p1
+q1 link k1 q4 p1
+
+#q2 title
+q2 > Z q2 t1
+q2 string t1 q2 t1
+q2 < t1 q2 o1
+q2 / o1 q2 t2
+q2 title t2 q2 c1
+q2 > c1 q1 h2
+q2 !-- o1 q6 Z
+
+#q3 script (attribute: src)
+q3 > p1 q3 s101
+q3 string s101 q3 s101
+q3 src=* p1 q3 p1
+q3 < s101 q3 o201
+q3 / o201 q3 s201
+q3 script s201 q3 c201
+q3 > c201 q1 h2
+q3 !-- o201 q6 Z
+q3 > p2 q3 s102
+q3 string s102 q3 s102
+q3 src=* p1 q3 p1
+q3 < s102 q3 o202
+q3 / o202 q3 s202
+q3 script s202 q3 c202
+q3 > c202 q5 b2
+q3 !-- o202 q6 sp
+
+#q4 link (attribute: rel wajib, href)
+q4 rel=* p1 q3 r101
+q4 href=* r101 q3 r101
+q4 > r101 q3 h2
+q4 rel=* p2 q3 r102
+q4 href=* r102 q3 r102
+q4 > r102 q5 b2
+
+#q5 body
+q5 !-- b1 q6 sp
+q5 body b1 q5 Z
+q5 > Z q5 b2
+q5 < b2 q5 k2
+q5 / k2 q5 x2
+q5 body x2 q5 b3
+q5 > b3 q5 u2
+q5 < u2 q7 u3
+q5 script k2 q3 p2
+q5 link k2 q4 p2
+q5 table k2 q9 Z
+q5 script k2 q3 Z
+q5 script k2 q3 Z
+q5 script k2 q3 Z
+
+#q6 comment
+
+#q7 html akhir
+q7 / u3 q7 x3
+q7 html x3 q7 u4
+q7 > u4 q8 Z
+q7 !-- w q6 Z
+q7 !-- u3 q6 sp
+
+#q8 final state yey
+q8 < Z q7 w
+
+#q9
+
+
+#q10
+
+#q11
+
+#q12
+
+#q13
