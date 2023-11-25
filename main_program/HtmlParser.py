@@ -1,24 +1,35 @@
-from bs4 import BeautifulSoup
-import re
 import os
+import re
 
-tags=[]
-all_nonspace=[]
+def string_generalizer(string):
+    lst=[]
+    for el in string:
+        if el == '':
+            lst+=["string"]
+        else:
+            lst+=[el]
+    return lst
 
-name = input("Masukan nama file: ") 
+def token(lst):
+    text = ''.join(lst)  # Convert the list to a single string
+    pattern = r'(<[^<>]*>)|[^<>]+'  # Regex pattern to match strings enclosed in < and >
+    enclosed_strings = re.findall(pattern, text)
+    return enclosed_strings
 
-with open(os.path.abspath("../TBFO-GEMING/test_files/" + name), 'r', encoding='utf-8') as file:
-    # Read the entire content of the file into a variable
-    soup = BeautifulSoup(file, "html.parser")
+def HtmlParser(filename):
+    global lines
+    global allnonwhitespace
+    lines=[]
+    allnonwhitespace=[]
+    with open(os.path.abspath("../test_files/" + filename), 'r', encoding='utf-8') as file:
+        # Read the entire content of the file into a variable
+        for line in file:
+            # all_nonspace+=re.split(r'[<,>]',line.strip())
+            lines+=(line.strip()).split(" ")
+    for el in lines:
+        if el != '':
+           allnonwhitespace+=el
+    return string_generalizer(token(allnonwhitespace))
 
-    all_tags = soup.find_all()
-
-for tag in all_tags:
-    tags+=[tag.name]
-
-with open(os.path.abspath("../TBFO-GEMING/test_files/" + name), 'r', encoding='utf-8') as file:
-    # Read the entire content of the file into a variable
-    for line in file:
-        all_nonspace+=re.split(r'[<,>]',line.strip())
-
-print(all_nonspace)
+# filename=input()
+# HtmlParser(filename)

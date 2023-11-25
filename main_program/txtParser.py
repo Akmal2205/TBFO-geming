@@ -33,8 +33,8 @@ def txtParser(filename):
 			productions.append(prod)
 	return productions
 
-filename = input("Please enter your automata file:\n")
-while not txtParser(filename):
-	print ("File not found!")
-	filename = input("Please enter your automata file again:\n")
-print(txtParser(filename))
+# filename = input("Please enter your automata file:\n")
+# while not txtParser(filename):
+# 	print ("File not found!")
+# 	filename = input("Please enter your automata file again:\n")
+# print(txtParser(filename))
