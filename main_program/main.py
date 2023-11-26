@@ -37,13 +37,6 @@ def nextState(index): # Mengembalikan next state
 def nextTopStack(index): # Mengembalikan next top stack
     topstack = productions[index][len(productions[1])-1]
     return topstack
-
-# def isHtmlValid(): # Mengembalikan true jika html valid, dan sebaliknya
-#     if current_state=="q8":
-#         return True
-#     else:
-#         return False
-
     
 # PDA Checking Section
 Valid = True
@@ -59,17 +52,7 @@ for el in html_parse:
         Valid = False
         break
 
-# current_topstack+=["k0"]
-# current_topstack+=["u1"]
-# print (isPrdFound(current_state,html_parse[2],current_topstack[len(current_topstack)-1]))
-
 if Valid :
     print("Accepted")
 else:
     print("Syntax Error")
-
-
-
-
-
-
