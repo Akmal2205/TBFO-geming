@@ -1,0 +1,350 @@
+q0 q1 q2 q3 q4 q5 q6 q7 q8  F [state, symbol, stack, next state, next stack]
+a
+Z Y
+q0
+Z
+F
+F
+
+#q0 html awal
+q0 < Z q0 k0
+q0 html k0 q0 htmlaw
+q0 > htmlaw q0 head0
+q0 > cmd0 q0 Z
+q0 cmd k0 q0 cmd0
+q0 < head0 q1 head1
+
+#q1 head
+q1 head head1 q1 Z
+q1 > Z q1 head2
+q1 < head2 q1 k1
+q1 / k1 q1 x1
+q1 head x1 q1 head3
+q1 > head3 q1 next0
+q1 < next0 q1 next1
+q1 cmd k1 q1 cmd1
+q1 > cmd1 q1 head2
+q1 cmd head1 q1 hcmd
+q1 cmd next1 q1 ncmd
+q1 > ncmd q1 next0
+q1 > hcmd q1 head0
+q1 / next1 q6 x6
+q1 link k1 q4 m1
+q1 title k1 q2 Z
+q1 script k1 q3 m1
+q1 body head1 q5 Z
+q1 body next1 q5 Z
+
+#q2 title
+q2 title k1 q1 Z
+q2 > Z q2 title0
+q2 < title0 q2 k2
+q2 / k2 q2 x2
+q2 title x2 q2 title1
+q2 string title0 q2 title0
+q2 cmd k2 q2 cmd2
+q2 > cmd2 q2 title0
+q2 > title1 q1 title
+
+#q3 script (attribute: src)
+q3 src=* m1 q3 m1
+q3 > m1 q3 script01
+q3 < script01 q3 k31
+q3 / k31 q3 x31
+q3 script x31 q3 script11
+q3 string script01 q3 script01
+q3 cmd k31 q3 cmd31
+q3 > cmd31 q3 script01
+q3 > script11 q1 head 2
+q3 src=* m2 q3 m2
+q3 > m2 q3 script02
+q3 < script02 q3 k32
+q3 / k32 q3 x32
+q3 script x32 q3 script12
+q3 string script02 q3 script02
+q3 cmd k32 q3 cmd32
+q3 > cmd32 q3 script02
+q3 > script12 q1 head 2
+
+#q4 link (attribute: rel wajib, href)
+q4 rel=* m1 q4 r1
+q4 href=* r1 q4 r1
+q4 href=* m1 q4 m1
+q4 > r1 q1 head2
+q4 rel=* m2 q4 r2
+q4 href=* r2 q4 r2
+q4 href=* m2 q4 m2
+q4 > r2 q5 body2
+
+#q5 body
+q5 > Z q5 body2
+q5 < body2 q5 k5
+q5 / k5 q5 x5
+q5 body x5 q5 body3
+q5 > body3 q5 htmlak0
+q5 > cmd5 q5 body 2
+q5 cmd k5 q5 cmd5
+q5 < htmlak0 q6 htmlak1
+q5 link k5 q4 m2
+q5 script k5 q3 m2
+q5 div k5 q16 Z
+q5 p k5 q14 m1
+q5 br k5 q15 m1
+q5 h1 k5 q8 m1
+q5 h2 k5 q9 m1
+q5 h3 k5 q10 m1
+q5 h4 k5 q11 m1
+q5 h5 k5 q12 m1
+q5 h6 k5 q13 m1
+q5 table k5 q20 Z
+q5 em k5 q17 Z
+q5 b k5 q18 Z
+q5 abbr k5 q19 Z
+q5 strong k5 q21 Z
+q5 small k5 q22 Z
+q5 a k5 q23 Z
+q5 button k5 q24 Z
+q5 form k5 q25 Z
+q5 hr k5 q29 Z
+q5 img k5 q30 Z
+q5 input k5 q31 input1
+
+
+#q6 html akhir
+q6 cmd unfinished q6 ucmd
+q6 cmd htmlak1 q6 cmd6
+q6 / htmlak1 q6 x6
+q6 html x6 q6 htmlak2
+q6 > htmlak2 q7 Z
+q6 > ucmd q7 Z
+
+#q7 final state
+q7 < Z q6 unfinished
+
+#q8 h1
+q8 > m1 q8 h101
+q8 string h101 q8 h101
+q8 < h101 q8 k81
+q8 / k81 q8 x81
+q8 h1 x81 q8 h111
+q8 cmd k81 q8 cmd81
+q8 > cmd81 q8 h101
+q8 > m2 q8 h102
+q8 string h102 q8 h102
+q8 < h102 q8 k82
+q8 / k82 q8 x82
+q8 h1 x82 q8 h112
+q8 cmd k82 q8 cmd82
+q8 > cmd82 q8 h102
+q8 > h111 q5 body2
+q8 > h112 q16 div0
+
+#q9 h2
+q9 > m1 q9 h201 
+q9 string h201 q9 h201 
+q9 < h201 q9 k91 
+q9 / k91 q9 x91 
+q9 h2 x91 q9 h211 
+q9 cmd k91 q9 cmd91 
+q9 > cmd91 q9 h201 
+q9 > m2 q9 h202 
+q9 string h202 q9 h202 
+q9 < h202 q9 k92 
+q9 / k92 q9 x92 
+q9 h2 x92 q9 h212 
+q9 cmd k92 q9 cmd92 
+q9 > cmd92 q9 h202
+q9 > h211 q5 body2
+q9 > h211 q5 body2
+q9 > h212 q16 div0
+
+#q10 h3
+q10 > m1 q10 h301 
+q10 string h301 q10 h301 
+q10 < h301 q10 k101 
+q10 / k101 q10 x101 
+q10 h3 x101 q10 h311 
+q10 cmd k101 q10 cmd101 
+q10 > cmd101 q10 h301
+q10 > m2 q10 h302 
+q10 string h302 q10 h302 
+q10 < h302 q10 k102 
+q10 / k102 q10 x102 
+q10 h3 x102 q10 h312 
+q10 cmd k102 q10 cmd102 
+q10 > cmd102 q10 h302
+q10 > h311 q5 body2
+q10 > h312 q16 div0
+
+#q11 h4
+q11 > m1 q11 h401 
+q11 string h401 q11 h401 
+q11 < h401 q11 k111
+q11 / k111 q11 x111 
+q11 h4 x111 q11 h411 
+q11 cmd k111 q11 cmd111 
+q11 > cmd111 q11 h401 
+q11 > m2 q11 h402 
+q11 string h402 q11 h402 
+q11 < h402 q11 k112
+q11 / k112 q11 x112 
+q11 h4 x112 q11 h412 
+q11 cmd k112 q11 cmd112 
+q11 > cmd112 q11 h402
+q11 > h411 q5 body2
+q11 > h412 q16 div0
+
+#q12 h5
+q12 > m1 q12 h501 
+q12 string h501 q2 h501 
+q12 < h501 q12 k121 
+q12 / k121 q12 x121 
+q12 h5 x121 q12 h511 
+q12 cmd k121 q12 cmd121 
+q12 > cmd121 q12 h501 
+q12 > m2 q12 h502 
+q12 string h502 q2 h502 
+q12 < h502 q12 k122 
+q12 / k122 q12 x122 
+q12 h5 x122 q12 h512 
+q12 cmd k122 q12 cmd122 
+q12 > cmd122 q12 h502
+q12 > h511 q5 body2
+q12 > h512 q16 div0
+
+#q13 h6
+q13 > m1 q13 h601
+q13 string h601 q13 h601 
+q13 < h601 q13 k131 
+q13 / k131 q13 x131 
+q13 h6 x131 q13 h611 
+q13 cmd k131 q13 cmd131 
+q13 > cmd131 q13 h601 
+q13 > m2 q13 h602 
+q13 string h602 q13 h602 
+q13 < h602 q13 k132 
+q13 / k132 q13 x132 
+q13 h6 x132 q13 h612 
+q13 cmd k132 q13 cmd132 
+q13 > cmd132 q13 h602
+q13 > h611 q5 body2
+q13 > h612 q16 div0
+
+#q14 p
+q14 > p11 q5 body2
+q14 > m2 q15 p01
+q14 > p12 q16 div0
+q14 > m1 q14 p01
+q14 string p01 q14 p01
+q14 < p01 q14 k141
+q14 / k141 q14 x141
+q14 p x141 q14 p11
+q14 cmd k141 q14 cmd141
+q14 > cmd141 q14 p01
+q14 > m2 q14 p02
+q14 string p02 q14 p02
+q14 < p02 q14 k142
+q14 / k142 q14 x142
+q14 p x142 q14 p12
+q14 cmd k142 q14 cmd142
+q14 > cmd142 q14 p02
+
+#q15 br
+q15 > m2 q14 p01
+q15 > m1 q5 body2
+
+#q16 div1
+q16 > Z q16 div0
+q16 cmd div0 q16 div0
+q16 string div0 q16 div0
+q16 < div0 q16 k16
+q16 div k16 q162
+q16 /div k16 q16 div1
+q16 > div1 q5 body2 
+
+
+#q162 div2
+q162 > Z q162 div0
+q162 cmd div0 q162 div0
+q162 string div0 q162 div0
+q162 < div0 q162 k162
+q162 div k162 q16 Z
+q162 /div k162 q162 x162
+q162 > x162 q16 div0
+
+#q17 em
+q17 > em1 q5 body2
+q17 > Z q17 em0
+q17 < em0 q17 k17
+q17 / k17 q17 x17
+q17 em x17 q17 em1
+q17 string em0 q17 em0
+q17 cmd k17 q17 cmd17
+q17 > cmd17 q17 em0
+
+#q18 b
+q18 > b1 q5 body2
+q18 > Z q18 b0
+q18 < b0 q18 k18
+q18 / k18 q18 x18
+q18 b x18 q18 b1
+q18 string b0 q18 b0
+q18 cmd k18 q18 cmd18
+q18 > cmd18 q18 b0
+
+#q19 abbr
+q19 > abbr1 q5 body2
+q19 > Z q19 abbr0
+q19 < abbr0 q19 k19
+q19 / k19 q19 x19
+q19 abbr x19 q19 abbr1
+q19 string abbr0 q19 abbr0
+q19 cmd k19 q19 cmd19
+q19 > cmd19 q19 abbr0
+
+#q20 table
+q20 > table1 q5 body2
+q20 > Z q20 table0
+q20 < table0 q20 k20
+q20 / k20 q20 x20
+q20 table x20 q20 table1
+q20 cmd k20 q20 cmd20
+q20 > cmd20 q20 table0
+q20 tr k20 q20 Z
+q20 th k20 q20 Z
+q20 td k20 q20 Z
+
+#q21 strong
+q21 > strong1 q5 body2
+q21 > Z q21 strong0
+q21 < strong0 q21 k21
+q21 / k21 q21 x21
+q21 strong x21 q21 strong1
+q21 string strong0 q21 strong0
+q21 cmd k21 q21 cmd21
+q21 > cmd21 q21 strong0
+
+#q22 small
+q22 > small1 q5 body2
+q22 > Z q22 small0
+q22 < small0 q22 k22
+q22 / k22 q22 x22
+q22 small x22 q22 small1
+q22 string small0 q22 small0
+q22 cmd k22 q22 cmd22
+q22 > cmd22 q22 small0
+
+#q23 a
+q23 > a1 q5 body2
+q23 > Z q23 a0
+q23 < a0 q23 k23
+q23 / k23 q23 x23
+q23 a x23 q23 a1
+q23 string a0 q23 a0
+q23 cmd k23 q23 cmd23
+q23 > cmd23 q23 a0
+q23 href=* Z q23 Z
+
+#q24 button
+q24 > button1 q5 body2
+q24 > Z q24 button0

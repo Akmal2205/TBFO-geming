@@ -46,9 +46,9 @@ for el in html_parse:
         temp_topstack=[nextTopStack(isPrdFound(current_state, el, current_topstack[len(current_topstack)-1]))]
         current_state=temp_state
         current_topstack+=temp_topstack
-        print(current_state, current_topstack[len(current_topstack)-1], el)
+        # print(current_state, current_topstack[len(current_topstack)-1], el)
     else:
-        print(current_state, current_topstack[len(current_topstack)-1], el)
+        # print(current_state, current_topstack[len(current_topstack)-1], el)
         Valid = False
         break
 

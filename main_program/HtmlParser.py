@@ -63,5 +63,5 @@ def HtmlParser(filename): # Fungsi utama parser
            allnonwhitespace+=[el]
     return (lst_generalizer(string_generalizer(allnonwhitespace))) # Return sebuah list hasil parsing html
 
-filename=input()
-print(HtmlParser(filename))
+# filename=input()
+# print(HtmlParser(filename))
