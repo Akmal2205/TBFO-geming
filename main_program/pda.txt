@@ -109,9 +109,8 @@ q9 > Z2 q9 h12
 q9 string h12 q9 h12
 q9 cmd h12 q9 h12
 q9 < h12 q9 k92
-q9 /div k92 q15 x15
 q9 /h1 k92 q9 x92
-q9 > x92 q9 h12
+q9 > x92 q15 div0
 
 #q10 h2
 q10 > Z q10 h20
@@ -121,13 +120,12 @@ q10 < h20 q10 k10
 q10 /h2 k10 q10 x10
 q10 > x10 q5 b2
 #div
-q9 > Z2 q9 h22
-q9 string h22 q9 h22
-q9 cmd h22 q9 h22
-q9 < h22 q9 k92
-q9 /div k92 q15 x15
-q9 /h1 k92 q9 x92
-q9 > x92 q9 h22
+q10 > Z2 q10 h22
+q10 string h22 q10 h22
+q10 cmd h22 q10 h22
+q10 < h22 q10 k102
+q10 /h2 k102 q10 x102
+q10 > x102 q15 div0
 
 #q11 h3
 q11 > Z q11 h30
@@ -136,6 +134,13 @@ q11 cmd h30 q11 h30
 q11 < h30 q11 k11
 q11 /h3 k11 q11 x11
 q11 > x11 q5 b2
+#div
+q11 > Z2 q11 h32
+q11 string h32 q11 h32
+q11 cmd h32 q11 h32
+q11 < h32 q11 k302
+q11 /h3 k302 q11 x302
+q11 > x302 q15 div0
 
 #q12 h4
 q12 > Z q12 h40
@@ -143,6 +148,13 @@ q12 string h40 q12 h40
 q12 < h40 q12 k12
 q12 /h4 k12 q12 x12
 q12 > x12 q5 b2
+#div
+q12 > Z2 q12 h42
+q12 string h42 q12 h42
+q12 cmd h42 q12 h42
+q12 < h42 q12 k402
+q12 /h4 k402 q12 x402
+q12 > x402 q15 div0
 
 #q13 h5
 q13 > Z q13 h50
@@ -150,6 +162,13 @@ q13 string h50 q13 h50
 q13 < h50 q13 k13
 q13 /h5 k13 q13 x13
 q13 > x13 q5 b2
+#div
+q13 > Z2 q13 h52
+q13 string h52 q13 h52
+q13 cmd h52 q13 h52
+q13 < h52 q13 k502
+q13 /h5 k502 q13 x502
+q13 > x502 q15 div0
 
 #q14 h6
 q14 > Z q14 h60
@@ -157,6 +176,13 @@ q14 string h60 q14 h60
 q14 < h60 q14 k14
 q14 /h6 k14 q14 x14
 q14 > x14 q5 b2
+#div
+q14 > Z2 q14 h62
+q14 string h62 q14 h62
+q14 cmd h62 q14 h62
+q14 < h62 q14 k602
+q14 /h6 k602 q14 x602
+q14 > x602 q15 div0
 
 #q15 div1
 q15 > Z q15 div0
