@@ -1,7 +1,7 @@
 import os
 import re
 
-def attribute_generalizer(string):
+def attribute_generalizer(string): # Untuk mengeneralisir bentuk atribut
     pattern_src = re.compile(r'src\s*=\s*"[^"]+"')
     pattern_alt = re.compile(r'alt\s*=\s*"[^"]+"')
     pattern_href = re.compile(r'href\s*=\s*"[^"]+"')
@@ -11,7 +11,9 @@ def attribute_generalizer(string):
     pattern_action = re.compile(r'action\s*=\s*"[^"]+"')
     pattern_type = re.compile(r'type\s*=\s*("[^"]*")')
     pattern_method = re.compile(r'method\s*=\s*("[^"]*")')
+    pattern_comment = re.compile(r'<!--.*-->')
     result_string = pattern_src.sub('src="*"', string)
+    result_string = pattern_comment.sub('<cmd>', string)
     result_string = pattern_alt.sub('alt="*"', result_string)
     result_string = pattern_href.sub('href="*"', result_string)
     result_string = pattern_id.sub('id="*"', result_string)
@@ -23,7 +25,7 @@ def attribute_generalizer(string):
     return result_string
     
 
-def string_generalizer(lst):
+def string_generalizer(lst): # Untuk mengeneralisir bentuk string
     i=0
     while i!=len(lst)-1:
         if lst[i]==">":
@@ -37,26 +39,21 @@ def string_generalizer(lst):
             while lst[i]!="--":
                 lst[i]="string"
                 i+=1
-    j=0
     return lst           
 
-def HtmlParser(filename):
+def HtmlParser(filename): # Fungsi utama parser
     global lines
     global allnonwhitespace
     lines=[]
     allnonwhitespace=[]
     with open(os.path.abspath("../test_files/" + filename), 'r', encoding='utf-8') as file:
-        # Read the entire content of the file into a variable
         for line in file:
-            # all_nonspace+=re.split(r'[<,>]',line.strip())
-            # lines+=re.findall(r'<[^>]+>|[^<>]+', ListtoString((line.strip()).split("/r")))
-            g_line=attribute_generalizer(line)
+            g_line=attribute_generalizer(line) # Mengeneralisir atribut per line yang dibaca
             lines+= re.split(r'(<|>| )', (g_line.strip()))
     for el in lines:
-        if el != '' and el!=' ':
+        if el != '' and el!=' ': # Menghilangkan kemungkinan whitespace pada list
            allnonwhitespace+=[el]
-    # return replace_img_tags(string_generalizer(token(allnonwhitespace)))
-    return (string_generalizer(allnonwhitespace))
+    return (string_generalizer(allnonwhitespace)) # Return sebuah list hasil parsing html
 
-# filename=input()
-# HtmlParser(filename)
+filename=input()
+print(HtmlParser(filename))

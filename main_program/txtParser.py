@@ -26,11 +26,15 @@ def txtParser(filename):
 	stack_symbols.extend(lines[2].split())
 	acceptable_states.extend(lines[5].split())
 	i = 0
+	temp=[]
 	for line in lines:
 		i += 1
 		if (i > 7):
 			prod = [item.strip() for item in line.split(' ')]
-			productions.append(prod)
+			temp.append(prod)
+	for el in temp:
+		if el[0] != '':
+			productions.append(el)
 	return productions
 
 # filename = input("Please enter your automata file:\n")
