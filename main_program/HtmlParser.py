@@ -28,6 +28,9 @@ def attribute_generalizer(string):
 
     return result_string
 
+def div_formatting(strng):
+    new_string=strng.replace("/", "/ ")
+
 def lst_generalizer(lst):
     tmp=[]
     for el in lst:
@@ -54,11 +57,11 @@ def HtmlParser(filename): # Fungsi utama parser
     with open(os.path.abspath("../test_files/" + filename), 'r', encoding='utf-8') as file:
         for line in file:
             g_line=attribute_generalizer(line) # Mengeneralisir atribut per line yang dibaca
-            lines+= re.split(r'(<|>| )', (g_line.strip()))
+            lines+= re.split(r'(<|>| |/)', (g_line.strip()))
     for el in lines:
         if el != '' and el!=' ': # Menghilangkan kemungkinan whitespace pada list
            allnonwhitespace+=[el]
     return (lst_generalizer(string_generalizer(allnonwhitespace))) # Return sebuah list hasil parsing html
 
-# filename=input()
-# print(HtmlParser(filename))
+filename=input()
+print(HtmlParser(filename))

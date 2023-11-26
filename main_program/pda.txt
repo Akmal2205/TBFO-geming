@@ -200,7 +200,6 @@ q15 h4 k15 q12 Z2
 q15 h5 k15 q13 Z2
 q15 h6 k15 q14 Z2
 
-
 #q16 div2
 q16 > Z q16 div0
 q16 cmd div0 q16 div0
@@ -226,3 +225,7 @@ q17 < p01 q17 k17
 q17 /p k17 q17 x17
 q17 > x17 q15 div0
 
+#q20
+q20 > Z q20 table0
+q20 < table0 q20 k10
+q20 /table q20 
