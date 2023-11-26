@@ -16,9 +16,9 @@ def attribute_generalizer(string): # Untuk mengeneralisir bentuk atribut
     result_string = pattern_comment.sub('<cmd>', string)
     result_string = pattern_alt.sub('alt="*"', result_string)
     result_string = pattern_href.sub('href="*"', result_string)
-    result_string = pattern_id.sub('id="*"', result_string)
-    result_string = pattern_class.sub('class="*"', result_string)
-    result_string = pattern_style.sub('style="*"', result_string)
+    result_string = pattern_id.sub('', result_string)
+    result_string = pattern_class.sub('', result_string)
+    result_string = pattern_style.sub('', result_string)
     result_string = pattern_action.sub('action="*"', result_string)
     result_string = pattern_method.sub(r'method=\1', result_string)
     result_string = pattern_type.sub(r'type=\1', result_string)
@@ -26,20 +26,16 @@ def attribute_generalizer(string): # Untuk mengeneralisir bentuk atribut
     
 
 def string_generalizer(lst): # Untuk mengeneralisir bentuk string
-    i=0
-    while i!=len(lst)-1:
-        if lst[i]==">":
-            i+=1
-            while lst[i]!="<":
-                lst[i]="string"
-                i+=1
-        i+=1
-        if lst[i]=="!--":
-            i+=1
-            while lst[i]!="--":
-                lst[i]="string"
-                i+=1
-    return lst           
+    i = 0
+    while i < len(lst):
+        if lst[i] == ">":
+            i += 1
+            while i < len(lst) and lst[i] != "<":
+                lst[i] = "string"
+                i += 1
+        else:
+            i += 1
+    return lst         
 
 def HtmlParser(filename): # Fungsi utama parser
     global lines

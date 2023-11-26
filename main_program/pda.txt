@@ -1,4 +1,4 @@
-q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 P F
+q0 q1 q2 q3 q4 q5 q6 q7 q8 P F
 a
 Z Y
 q0
@@ -16,8 +16,7 @@ q0 < h0 q1 h1
 q1 head h1 q1 Z
 q1 > Z q1 h2
 q1 < h2 q1 k1
-q1 / k1 q1 x1
-q1 head x1 q1 h3
+q1 /head k1 q1 h3
 q1 > h3 q1 b0
 q1 < b0 q5 b1
 q1 title k1 q2 Z
@@ -66,8 +65,7 @@ q5 !-- b1 q6 sp
 q5 body b1 q5 Z
 q5 > Z q5 b2
 q5 < b2 q5 k2
-q5 / k2 q5 x2
-q5 body x2 q5 b3
+q5 /body k2 q5 b3
 q5 > b3 q5 u2
 q5 < u2 q7 u3
 q5 script k2 q3 p2
@@ -80,8 +78,7 @@ q5 script k2 q3 Z
 #q6 comment
 
 #q7 html akhir
-q7 / u3 q7 x3
-q7 html x3 q7 u4
+q7 /html u3 q7 u4
 q7 > u4 q8 Z
 q7 !-- w q6 Z
 q7 !-- u3 q6 sp

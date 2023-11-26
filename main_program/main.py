@@ -63,8 +63,6 @@ for el in html_parse:
 # current_topstack+=["u1"]
 # print (isPrdFound(current_state,html_parse[2],current_topstack[len(current_topstack)-1]))
 
-print(html_parse)
-
 if Valid :
     print("Accepted")
 else:
