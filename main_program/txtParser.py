@@ -36,9 +36,3 @@ def txtParser(filename):
 		if el[0] != '':
 			productions.append(el)
 	return productions
-
-# filename = input("Please enter your automata file:\n")
-# while not txtParser(filename):
-# 	print ("File not found!")
-# 	filename = input("Please enter your automata file again:\n")
-# print(txtParser(filename))
