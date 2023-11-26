@@ -1,72 +1,77 @@
-q0 q1 q2 q3 q4 q5 q6 q7 q8 P F
+q0 q1 q2 q3 q4 q5 q6 q7 q8  F [state, symbol, stack, next state, next stack]
 a
 Z Y
 q0
 Z
 F
 F
+
 #q0 html awal
 q0 < Z q0 k0
+q0 cmd k0 q0 k0
 q0 html k0 q0 u1
+q0 ga u1 q0 u1
 q0 > u1 q0 h0
-q0 !-- k0 q6 Z
+q0 cmd h0 q0 h0
 q0 < h0 q1 h1
 
 #q1, head
 q1 head h1 q1 Z
+q0 ga Z q0 Z
 q1 > Z q1 h2
+q1 cmd h2 q1 h2
 q1 < h2 q1 k1
 q1 /head k1 q1 h3
 q1 > h3 q1 b0
+q1 cmd b0 q1 b0
 q1 < b0 q5 b1
 q1 title k1 q2 Z
-q1 !-- k1 q6 Z
-q1 !-- h1 q6 sp
 q1 script k1 q3 p1
 q1 link k1 q4 p1
 
 #q2 title
+q2 ga Z q2 Z
 q2 > Z q2 t1
 q2 string t1 q2 t1
 q2 < t1 q2 o1
-q2 / o1 q2 t2
-q2 title t2 q2 c1
+q2 /title o1 q2 c1
 q2 > c1 q1 h2
-q2 !-- o1 q6 Z
 
 #q3 script (attribute: src)
 q3 > p1 q3 s101
+q3 cmd s101 q3 s101
 q3 string s101 q3 s101
 q3 src=* p1 q3 p1
+q3 src=* p2 q3 p2
 q3 < s101 q3 o201
-q3 / o201 q3 s201
-q3 script s201 q3 c201
+q3 /script o201 q3 c201
 q3 > c201 q1 h2
-q3 !-- o201 q6 Z
 q3 > p2 q3 s102
+q3 cmd s102 q3 s102
 q3 string s102 q3 s102
 q3 src=* p1 q3 p1
 q3 < s102 q3 o202
-q3 / o202 q3 s202
-q3 script s202 q3 c202
+q3 /script o202 q3 c202
 q3 > c202 q5 b2
-q3 !-- o202 q6 sp
 
 #q4 link (attribute: rel wajib, href)
-q4 rel=* p1 q3 r101
-q4 href=* r101 q3 r101
-q4 > r101 q3 h2
+q4 rel=* p1 q4 r101
+q4 href=* r101 q4 r101
+q4 href=* p1 q4 r101
+q4 rel=* r101 q4 r101
+q4 > r101 q1 h2
 q4 rel=* p2 q3 r102
 q4 href=* r102 q3 r102
 q4 > r102 q5 b2
 
 #q5 body
-q5 !-- b1 q6 sp
 q5 body b1 q5 Z
 q5 > Z q5 b2
+q5 cmd b2 q5 b2
 q5 < b2 q5 k2
 q5 /body k2 q5 b3
 q5 > b3 q5 u2
+q5 cmd u2 q5 u2
 q5 < u2 q7 u3
 q5 script k2 q3 p2
 q5 link k2 q4 p2
@@ -74,25 +79,124 @@ q5 table k2 q9 Z
 q5 script k2 q3 Z
 q5 script k2 q3 Z
 q5 script k2 q3 Z
+q5 h1 k2 q9 Z
+q5 h2 k2 q10 Z
+q5 h3 k2 q11 Z
+q5 h4 k2 q12 Z
+q5 h5 k2 q13 Z
+q5 h6 k2 q14 Z
+q5 div k2 q15 Z
+q5 p k2 q17 Z
 
-#q6 comment
 
 #q7 html akhir
 q7 /html u3 q7 u4
 q7 > u4 q8 Z
-q7 !-- w q6 Z
-q7 !-- u3 q6 sp
+q8 cmd Z q8 Z
 
 #q8 final state yey
 q8 < Z q7 w
 
-#q9
+#q9 h1
+q9 > Z q9 h10
+q9 string h10 q9 h10
+q9 cmd h10 q9 h10
+q9 < h10 q9 k9
+q9 /h1 k9 q9 x9
+q9 > x9 q5 b2
+#div
+q9 > Z2 q9 h12
+q9 string h12 q9 h12
+q9 cmd h12 q9 h12
+q9 < h12 q9 k92
+q9 /div k92 q15 x15
+q9 /h1 k92 q9 x92
+q9 > x92 q9 h12
+
+#q10 h2
+q10 > Z q10 h20
+q10 string h20 q10 h20
+q10 cmd h20 q10 h20
+q10 < h20 q10 k10
+q10 /h2 k10 q10 x10
+q10 > x10 q5 b2
+#div
+q9 > Z2 q9 h22
+q9 string h22 q9 h22
+q9 cmd h22 q9 h22
+q9 < h22 q9 k92
+q9 /div k92 q15 x15
+q9 /h1 k92 q9 x92
+q9 > x92 q9 h22
+
+#q11 h3
+q11 > Z q11 h30
+q11 string h30 q11 h30
+q11 cmd h30 q11 h30
+q11 < h30 q11 k11
+q11 /h3 k11 q11 x11
+q11 > x11 q5 b2
+
+#q12 h4
+q12 > Z q12 h40
+q12 string h40 q12 h40
+q12 < h40 q12 k12
+q12 /h4 k12 q12 x12
+q12 > x12 q5 b2
+
+#q13 h5
+q13 > Z q13 h50
+q13 string h50 q13 h50
+q13 < h50 q13 k13
+q13 /h5 k13 q13 x13
+q13 > x13 q5 b2
+
+#q14 h6
+q14 > Z q14 h60
+q14 string h60 q14 h60
+q14 < h60 q14 k14
+q14 /h6 k14 q14 x14
+q14 > x14 q5 b2
+
+#q15 div1
+q15 > Z q15 div0
+q15 cmd div0 q15 div0
+q15 string div0 q15 div0
+q15 < div0 q15 k15
+q15 p k15 q17 Z2
+q15 div k15 q16 Z
+q15 /div k15 q15 x15
+q15 > x15 q5 b2
+q15 h1 k15 q9 Z2
+q15 h2 k15 q10 Z2
+q15 h3 k15 q11 Z2
+q15 h4 k15 q12 Z2
+q15 h5 k15 q13 Z2
+q15 h6 k15 q14 Z2
 
 
-#q10
+#q16 div2
+q16 > Z q16 div0
+q16 cmd div0 q16 div0
+q16 string div0 q16 div0
+q16 < div0 q16 k16
+q16 div k16 q15 Z
+q16 /div k16 q16 x16
+q16 > x16 q15 div0
 
-#q11
+#q17 P
+q17 > Z q17 p01
+q17 string p01 q17 p01
+q17 cmd p01 q17 p01
+q17 < p01 q17 k17
+q17 /p k17 q17 x17
+q17 > x1 q5 b2
 
-#q12
+#q17 P
+q17 > Z2 q17 p01
+q17 string p01 q17 p01
+q17 cmd p01 q17 p01
+q17 < p01 q17 k17
+q17 /p k17 q17 x17
+q17 > x17 q15 div0
 
-#q13

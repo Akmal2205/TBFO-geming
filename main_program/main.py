@@ -13,7 +13,7 @@ if __name__ == "__main__": # Agar input sesuai dengan format di spek
     file2 = args.file2
 
 productions=(txtParser(file1)) # Merupakan list yang berisi productions [#State, Html section, description](Pembagi state), [Current state, Symbol read, Top of stack, Next state, Current top of stack]
-html_parse=(HtmlParser(file2)) # Marupakan list yang berisi hasil parsing dari html code displit berdasarkan karakter "<", ">", dan spasi
+html_parse=(HtmlParser(file2)) # Merupakan list yang berisi hasil parsing dari html code displit berdasarkan karakter "<", ">", dan spasi
 
 
 current_state="q0"
@@ -53,9 +53,9 @@ for el in html_parse:
         temp_topstack=[nextTopStack(isPrdFound(current_state, el, current_topstack[len(current_topstack)-1]))]
         current_state=temp_state
         current_topstack+=temp_topstack
-        print(current_state, current_topstack[len(current_topstack)-1], el, current_topstack)
+        print(current_state, current_topstack[len(current_topstack)-1], el)
     else:
-        print(current_state, current_topstack[len(current_topstack)-1], el, current_topstack)
+        print(current_state, current_topstack[len(current_topstack)-1], el)
         Valid = False
         break
 
